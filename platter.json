@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "components": [
+    {
+      "type": "web",
+      "path": "./components/web",
+      "build": [
+        "yarn"
+      ],
+      "start": "yarn start"
+    }
+  ]
+}
