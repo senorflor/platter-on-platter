@@ -48,7 +48,7 @@ class Gyro extends Component {
             <Mouse />
             <Rocket />
           </div>
-          <p>Platter gives you one-click templates to <span className='keyword'>create</span>, <span className='keyword'>deploy</span>, and <span class='keyword'>scale</span> new projects and products, now.</p>
+          <p>Platter gives you one-click templates to <span className='keyword'>create</span>, <span className='keyword'>deploy</span>, and <span class='keyword'>scale</span> new projects and products, right now.</p>
         </div>
       </div>
       <div id='gyro-down'><button onClick={this.handleClickToScroll }>▼</button></div>
