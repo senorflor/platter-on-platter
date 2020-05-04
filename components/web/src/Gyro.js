@@ -11,14 +11,13 @@ const Typed = styled.span`
 `
 
 const TypedNoteWrapper = styled.div`
-  margin: 0;
+  margin: 1rem 0 0 0;
   text-align: center;
 `
 
 const SmallNote = styled.span`
   font-family: Inconsolata, monospace;
   font-weight: 900;
-  font-size: 1.0rem;
 `
 
 class Gyro extends Component {
@@ -70,7 +69,7 @@ class Gyro extends Component {
               hideWhenDone: true,
               hideWhenDoneDelay: 0,
             }} >
-              <SmallNote>(custom templates coming soon!)</SmallNote>
+              <SmallNote className="parenthetical">(custom templates coming soon!)</SmallNote>
             </Typist></TypedNoteWrapper>
           ) : null
           }
