@@ -1,20 +1,527 @@
-.App {
-  text-align: center;
-  background-color: #282c34;
+:root {
+    --platter-lt-blue:    rgb(0,106,218);
+    --platter-md-lt-blue: rgb(0,81,168);
+    --platter-md-blue:    rgb(0,66,137);
+    --platter-dk-blue:    rgb(0,45,100);
+
+    --platter-white:   rgb(241, 244, 248);
+    --platter-lt-gray: rgb(225, 238, 240);
+
+    --platter-lt-gold: rgb(255, 185, 49);
+    --platter-md-gold: rgb(255, 160, 49);
+    --platter-dk-gold: rgb(255, 135, 49);
+    --platter-clementine: rgb(238, 0, 0);
+
+    --header-height: 72px;
+    --min-gyro-height: 500px;
+    --max-gyro-height: 1000px;
 }
 
-.App-header {
-  min-height: 100vh;
-  max-width: 80vw;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* resets */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
-.bp-link {
-  color: #61dafb;
+
+/* ---------------------------------------- */
+
+body, html {
+    background: var(--platter-dk-blue);
+    font-family: Avenir, "Red Hat Text", -apple-system, "Segoe UI", SegoeUI, "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    line-height: 1.25;
+    letter-spacing: 0.2px;
+    font-weight: 400;
+}
+
+/* In a few places we prefer Red Hat Text, though we default to Avenir above since it exists on Macs */
+header input.email, header input.fname, header button,
+#cta, #cta button,
+h2, h3, h4, h5, h6 {
+    font-family:  "Red Hat Text", Avenir, -apple-system, "Segoe UI", SegoeUI, "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+/* Header */
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: var(--header-height);
+    background: var(--platter-md-blue);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px;
+    transition: all 0.2s;
+    z-index: 1;
+}
+
+header.not-scrolled {
+    background: transparent;
+    box-shadow: none;
+}
+
+header div.inner {
+    margin: auto;
+    width: 100vw;
+    max-width: 1280px;
+    display: flex;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0 18px 4px 24px;
+    line-height: 1.4;
+    font-family: 'Montserrat', Avenir, sans-serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    letter-spacing: -0.035em;
+    flex: 1;
+}
+
+header h1 a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 1s ease;
+}
+
+h1 span.tighten {
+    letter-spacing: -0.05em;
+}
+
+h1 span.pad {
+    letter-spacing: -0.03em;
+}
+
+h1 span.dblpad {
+    letter-spacing: -0.015em;
+}
+
+/* logomark colors/themes */
+
+header h1 a {
+    color: var(--platter-md-gold);
+    -webkit-text-fill-color: transparent;
+    background: -webkit-linear-gradient(130deg, var(--platter-dk-gold) 0%, var(--platter-lt-gold) 80%, var(--platter-md-gold) 100%);
+    -webkit-background-clip: text;
+    transition: all 0.3s ease;
+}
+
+/* header signup form */
+
+header div#signup-wrapper h2 {
+    color: var(--platter-white);
+    margin-bottom: 5px;
+}
+
+header div.input-wrapper {
+    display: inline-block
+}
+
+header input.email, header input.fname {
+    font-size: 1rem;
+    background: var(--platter-lt-gray);
+    margin: 0px;
+    margin-right: 0.8rem;
+    max-width: 28vw;
+    transition: background 0.2s;
+}
+
+header input.highlighted {
+    background: var(--platter-lt-gold);
+}
+
+header button, #cta button {
+    overflow: visible;
+    width: auto;
+
+    margin-right: 0.8rem;
+    height: 2rem;
+    padding: 0.3rem 0.8rem;
+    background: var(--platter-md-gold);
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+    border-radius: 6px;
+    transition: all 0.1s;
+}
+
+header button.cancel-signup {
+    background-color: transparent;
+    color: var(--platter-white);
+    padding: 0.3rem 0;
+}
+
+@media (max-width: 700px) {
+    header div#signup-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        height: calc(2 * var(--header-height));
+        width: 100vw;
+        top: 0;
+        right: 0;
+        position: fixed;
+        background: var(--platter-md-blue);
+    }
+
+    header button#mc-embedded-subscribe {
+        margin-top: 10px;
+        max-width: 200px;
+        width: 70vw;
+    }
+
+    header button.cancel-signup {
+        font-size: 20px;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+}
+
+header a.sign-in, header a.sign-in:visited {
+    color: var(--platter-white);
+    text-decoration: none;
+    font-size: 1.18rem;
+    font-weight: 900;
+    margin-right: 24px;
+}
+
+header a.sign-in:hover {
+    text-decoration: underline;
+}
+
+button:hover {
+    cursor: pointer
+}
+
+/* Main */
+
+#main p {
+    text-align: center;
+    font-size: 1.25rem;
+    max-width: 40rem;
+}
+
+#main h2, #main h3, #main h4, #main h5, #main h6 {
+    text-align: center;
+}
+
+#main h2 {
+    font-size: 50px;
+    font-weight: 900;
+    line-height: 1.18;
+}
+
+#main h3 {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+
+
+@media (max-width: 550px) {
+    #main h2 {
+        font-size: 40px;
+    }
+}
+
+
+
+#gyro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: radial-gradient(closest-side, var(--platter-md-blue) , var(--platter-dk-blue));
+    color: var(--platter-white);
+
+    margin: 0 auto;
+    padding: var(--header-height) 2rem;
+    height: calc(96vh - 2 * var(--header-height));
+    min-height: var(--min-gyro-height);
+    max-height: var(--max-gyro-height);
+}
+
+@media (max-width: 700px) {
+    #gyro {
+        height: calc(100vh - 2 * var(--header-height));
+    }
+}
+
+#gyro-text {
+    width: 100%;
+    flex: 1;
+    font-size: 110%;
+    /* I know you like flexbox centering dawg... */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#gyro-text span.keyword {
+    font-weight: 900;
+    color: #fff;
+}
+
+#gyro-text h2 {
+    color: #eaeaea;
+    margin-bottom: 1rem;
+}
+
+#gyro-text li {
+    margin-left: 2rem;
+}
+
+#gyro-emoji {
+    margin: 2rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mouse{
+    flex: 1 1 auto;
+    width: 100px;
+    max-width: 100px;
+    margin-bottom: 25px;
+}
+
+.rocket {
+    flex: 1 1 auto;
+    width: 150px;
+    max-width: 150px;
+}
+
+
+#gyro-down {
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+    align-self: center;
+    text-align: center;
+}
+
+#gyro-down button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 18px;
+}
+
+#gyro-down button:focus {
+    outline: none;
+}
+
+
+/* how it works*/
+
+#how-it-works {
+    padding: 2rem;
+    background: var(--platter-white);
+    color: #232323;
+}
+
+#how-it-works h2 {
+    font-size: 24px;
+    font-variant: small-caps;
+    letter-spacing: 0.06rem;
+    margin-bottom: 3rem;
+}
+
+#how-it-works h3 {
+    font-size: 28px;
+    letter-spacing: 0.08rem;
+    margin-bottom: 1rem;
+}
+
+#how-it-works p {
+    font-size: 16px;
+    text-align: left;
+}
+
+
+#how-it-works #instructions {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+}
+
+
+#how-it-works .instruction {
+    margin: 1rem;
+    min-width: 180px;
+    max-width: 300px;
+    flex: 1 1 auto;
+}
+
+#how-it-works .instruction p {
+    background-color: white;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.2) 1px 5px 5px;
+    transition: transform 0.2s;
+}
+
+#how-it-works .instruction:hover p {
+    transform: scale(1.05);
+    transition: transform 0.2s;
+}
+
+#how-it-works .instruction:hover span.keyword {
+    color: var(--platter-dk-gold);
+    text-decoration: underline solid var(--platter-dk-gold);
+}
+
+@media (max-width: 750px) {
+    #how-it-works #instructions {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #how-it-works #instructions .instruction {
+        margin-bottom: 2.2rem;
+    }
+
+}
+
+#demoVideo {
+    width: 48vw;
+    height: 27vw;
+    margin: 2rem auto 3rem auto;
+    position: relative;
+
+}
+
+@media (max-width: 600px) {
+    #demoVideo {
+        width: 80vw;
+        height: 45vw;
+    }
+}
+
+#demoVideo > iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* cta */
+
+#cta {
+    padding: 2rem;
+    max-width: 540px;
+    margin: auto;
+    background: linear-gradient(135deg, var(--platter-dk-gold), var(--platter-clementine) 140%);
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 20px;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#cta:hover {
+    transform: scale(1.05);
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 24px;
+    transition: all 0.25s;
+}
+
+#cta p {
+    font-weight: 900;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+}
+
+
+#cta button {
+    background: white;
+    display: block;
+    margin-left: 40px;
+}
+
+@media (max-width: 620px) {
+    #cta {
+        padding: 1.5rem;
+        flex-direction: column;
+    }
+
+    #cta button {
+        margin: 20px 0
+    }
+}
+
+
+
+/* footer */
+
+footer {
+    color: var(--platter-white);
+    background: linear-gradient(190deg, var(--platter-md-blue), var(--platter-dk-blue));
+    height: 30vh;
+    max-height: 200px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+footer p {
+    text-align: center;
+    font-weight: 500;
+    padding: 0.3rem;
+    font-size: 1.1rem;
+    flex: 1 0 0;
+}
+
+small {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--platter-lt-gray);
 }
