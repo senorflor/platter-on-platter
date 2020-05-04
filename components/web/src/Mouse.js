@@ -2,6 +2,7 @@ import React from 'react'
 
 const Mouse = () => <div className="mouse">
 <svg viewBox="0 0 1279 1279" fill="none" xmlns="http://www.w3.org/2000/svg">
+<title>1. Click once</title>
 <metadata>
   <small>
     <span>This is a modified copy of the mouse emoji from Noto Color Emoji, © 2015 </span>

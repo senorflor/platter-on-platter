@@ -2,6 +2,7 @@ import React from 'react'
 
 const Rocket = () => <div className="rocket">
 <svg viewBox="0 0 1269 1269" fill="none" xmlns="http://www.w3.org/2000/svg">
+<title>2. Ship anything</title>
 <metadata>
   <small>
     <span>This is a modified copy of the rocket emoji from Noto Color Emoji, © 2015 </span>
