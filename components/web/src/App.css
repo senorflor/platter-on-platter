@@ -380,6 +380,10 @@ button:hover {
     text-align: left;
 }
 
+#how-it-works strong {
+    font-weight: 700;
+}
+
 
 #how-it-works #instructions {
     margin: auto;
@@ -402,12 +406,22 @@ button:hover {
     border: 1px solid #ccc;
     border-radius: 6px;
     box-shadow: rgba(0, 0, 0, 0.2) 1px 5px 5px;
-    transition: transform 0.2s;
+    transition: all 0.2s;
 }
 
 #how-it-works .instruction:hover p {
     transform: scale(1.05);
-    transition: transform 0.2s;
+    box-shadow: rgba(0, 0, 0, 0.2) 1px 5px 9px;
+}
+
+#how-it-works .instruction p::after {
+    box-shadow: rgba(0, 0, 0, 1) 10px 20px 2px;
+    opacity: 0;
+    transition : opacity 0.2s;
+}
+
+#how-it-works .instruction:hover p::after {
+    opacity: 1;
 }
 
 #how-it-works .instruction:hover span.keyword {

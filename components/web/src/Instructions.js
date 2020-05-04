@@ -8,16 +8,16 @@ const Instruction = (props) => <div className="instruction">
 
 
 const Instructions = () => <div id="instructions">
-  <Instruction title="ship" emoji="🚀" emojiLabel="rocket">
-    <p>Start with a one-click template or pick your target platforms. Platter creates a <span className="keyword">continuously deployed monorepo</span> for you. Our CLI spins it all up for local development.</p>
+  <Instruction title="create" emoji="🚀" emojiLabel="rocket">
+    <p><strong>Click once</strong>: Platter creates your codebase for you in GitHub and deploys it in seconds. Our CLI spins it up for local development. Best-in-class templates, no local setup.<br/><br/>User customizable templates coming soon: turn any shipped product into a template for others, database and all!</p>
   </Instruction>
 
-  <Instruction title="operate" emoji="🕹 " emojiLabel="joystick">
-    <p>Watch the dashboard to know what’s going on in production: your product starts with <span className="keyword">monitoring and observability tools</span> in a unified dashboard from day one.</p>
+  <Instruction title="deploy" emoji="🔄" emojiLabel="joystick">
+    <p><strong>Push code</strong>: each time new code hits the <code>master</code> branch in GitHub, Platter figures out which components have changed, then builds and deploys your product. No need to set up actions or separate CI/CD tools: update your code, share with your users, now.<br /><br />Pull request deploys coming soon!</p>
   </Instruction>
 
   <Instruction title="scale" emoji="📈" emojiLabel="chart with increasing metric">
-    <p>Your product autoscales to millions of users. As your business grows, enable <span className="keyword">cross-platform add-ons</span> with the full power of Platter’s product control plane.</p>
+    <p><strong>Grow and learn</strong>: Platter is for prod, not just for prototyping–your product starts with deploy monitoring/auto-rollbacks, API logging, and customizable domains out of the box. Skip the risky rebuild if your product gains traction: every component of a Platter product is built to autoscale as your product grows.</p>
   </Instruction>
 </div>
 
