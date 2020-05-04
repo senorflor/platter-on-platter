@@ -17,7 +17,7 @@ const Instructions = () => <div id="instructions">
   </Instruction>
 
   <Instruction title="scale" emoji="📈" emojiLabel="chart with increasing metric">
-    <p><strong>Grow and learn</strong>: Platter is for prod, not just for prototyping–your product starts with deploy monitoring/auto-rollbacks, API logging, and customizable domains out of the box. Skip the risky rebuild if your product gains traction: every component of a Platter product is built to autoscale as your product grows.</p>
+    <p><strong>Grow and learn</strong>: Platter is for prod, not just for prototyping–your product starts with deploy monitoring/auto-rollbacks, API logging, and customizable domains out of the box. Skip the risky rebuild if your product gains traction: every component of a Platter product is built to autoscale as your project or business grows.</p>
   </Instruction>
 </div>
 
