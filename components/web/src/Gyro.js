@@ -10,21 +10,7 @@ const Typed = styled.span`
   font-weight: 900;
 `
 
-const TypedNoteWrapper = styled.div`
-  margin: 1rem 0 0 0;
-  text-align: center;
-`
-
-const SmallNote = styled.span`
-  font-family: Inconsolata, monospace;
-  font-weight: 900;
-`
-
 class Gyro extends Component {
-
-  state = {
-    readyForNote: false
-  }
 
   // TODO: Remove knowledge of #main-header from this component
   handleClickToScroll = () => {
@@ -38,12 +24,6 @@ class Gyro extends Component {
     })
   }
 
-  handleFinishType = () => {
-    this.setState({
-      readyForNote: true
-    })
-  }
-
   render() {
     return <div id='gyro'>
       <div id='gyro-text'>
@@ -52,7 +32,7 @@ class Gyro extends Component {
           <h2><Typist cursor={{
             hideWhenDone: true,
             hideWhenDoneDelay: 0,
-          }} onTypingDone={this.handleFinishType}>
+          }}>
             <Typed>create a website</Typed>
             <Typist.Backspace count={16} delay={900} />
             <Typist.Delay ms={500} />
@@ -62,17 +42,8 @@ class Gyro extends Component {
             <Typed>share a slide deck</Typed>
             <Typist.Backspace count={18} delay={900} />
             <Typist.Delay ms={500} />
-            ship anything
+            ship your app
           </Typist></h2>
-          {this.state.readyForNote ? (
-            <TypedNoteWrapper><Typist cursor={{
-              hideWhenDone: true,
-              hideWhenDoneDelay: 0,
-            }} >
-              <SmallNote className="parenthetical">(custom templates coming soon!)</SmallNote>
-            </Typist></TypedNoteWrapper>
-          ) : null
-          }
           <div id='gyro-emoji'>
             <Mouse />
             <Rocket />
