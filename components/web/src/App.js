@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import throttle from 'lodash.throttle'
 
+import Cta from './Cta'
 import DemoVideo from './DemoVideo'
 import Footer from './Footer'
 import Gyro from './Gyro'
@@ -75,15 +76,7 @@ class App extends Component {
             <h2>how it works</h2>
             <Instructions/>
             <DemoVideo/>
-            
-            <div id='cta'>
-              <p>Ready to try Platter?</p>
-              <button onClick={
-                () => {
-                  window.location.href = 'https://app.platter.dev'
-                }
-              }>Start&nbsp;for&nbsp;free</button>
-            </div>
+            <Cta />
           </div>
         </div>
         <Footer/>
