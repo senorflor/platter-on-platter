@@ -401,51 +401,6 @@ button:hover {
     font-weight: 700;
 }
 
-
-#how-it-works #instructions {
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-}
-
-
-#how-it-works .instruction {
-    margin: 1rem;
-    min-width: 180px;
-    max-width: 300px;
-    flex: 1 1 auto;
-}
-
-#how-it-works .instruction p {
-    background-color: white;
-    padding: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    box-shadow: rgba(0, 0, 0, 0.2) 1px 5px 5px;
-    transition: all 0.2s;
-}
-
-#how-it-works .instruction:hover p {
-    transform: scale(1.05);
-    box-shadow: rgba(0, 0, 0, 0.2) 1px 5px 9px;
-}
-
-#how-it-works .instruction p::after {
-    box-shadow: rgba(0, 0, 0, 1) 10px 20px 2px;
-    opacity: 0;
-    transition : opacity 0.2s;
-}
-
-#how-it-works .instruction:hover p::after {
-    opacity: 1;
-}
-
-#how-it-works .instruction:hover span.keyword {
-    color: var(--platter-dk-gold);
-    text-decoration: underline solid var(--platter-dk-gold);
-}
-
 @media (max-width: 750px) {
     #how-it-works #instructions {
         display: flex;
