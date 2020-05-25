@@ -16,12 +16,6 @@ class App extends Component {
 
   state = {
     scrolled: window.pageYOffset > 5,
-    signupShown: false,
-  }
-
-  handleSignupToggle = () => {
-    const delay = this.state.signupShown ? 150 : 0 // HACK: don't hide that Mailchimp stuff too fast
-    setTimeout(() => this.setState((prevState) => ({ signupShown: !prevState.signupShown })), delay)
   }
 
   handleScroll = throttle(
@@ -37,39 +31,18 @@ class App extends Component {
     }
   )
 
-  handleClickAway = (e) => {
-    if (!e.target.closest('header') && !e.target.closest('#cta')) {
-      this.setState({
-        signupShown: false,
-      })
-    }
-  }
-
-  focusEmailInput = () => {
-    // All the hacks
-    const emailInput = document.getElementById('mce-EMAIL')
-    emailInput && emailInput.focus()
-  }
-
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll, true)
-    document.body.addEventListener('click', this.handleClickAway)
   }
 
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll)
-    document.body.removeEventListener('click', this.handleClickAway)
   }
 
   render() {
     return (
       <>
-        <Header
-          scrolled={this.state.scrolled}
-          handleSignupToggle={this.handleSignupToggle}
-          signupShown={this.state.signupShown}
-        />
-        { /* This is where we will introduce router when we have internet to download deps again. */ }
+        <Header scrolled={this.state.scrolled} />
         <div id='main'>
           <Gyro/>
           <div id='how-it-works'>
