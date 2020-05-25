@@ -1,4 +1,9 @@
 import React from 'react'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom'
 
 import Footer from './Footer'
 import Header from './Header'
@@ -10,11 +15,13 @@ const App = () => {
   const scrolled = useScrolledState()
 
   return (
-    <>
+    <Router>
       <Header scrolled={scrolled} />
-      <Main />
+      <Switch>
+        <Route path='/' component={Main} />
+      </Switch>
       <Footer/>
-    </>
+    </Router>
   )
 }
 
