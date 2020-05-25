@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import throttle from 'lodash.throttle'
 
-import Cta from './Cta'
-import DemoVideo from './DemoVideo'
 import Footer from './Footer'
-import Gyro from './Gyro'
 import Header from './Header'
-import Instructions from './Instructions'
+import Main from './Main'
 import './App.css'
 
 // Pixels before we make header transition to opaque
@@ -38,15 +35,7 @@ const App = () => {
   return (
     <>
       <Header scrolled={scrolled} />
-      <div id='main'>
-        <Gyro/>
-        <div id='how-it-works'>
-          <h2>how it works</h2>
-          <Instructions/>
-          <DemoVideo/>
-          <Cta />
-        </div>
-      </div>
+      <Main />
       <Footer/>
     </>
   )
