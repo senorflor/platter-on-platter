@@ -56,7 +56,9 @@ class Gyro extends Component {
           </p>
         </div>
       </div>
-      <div id='gyro-down'><button onClick={this.handleClickToScroll }>▼</button></div>
+      <div id='gyro-down'>
+        <button onClick={this.handleClickToScroll }>▼</button>
+      </div>
     </div>
   }
 }

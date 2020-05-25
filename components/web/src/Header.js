@@ -9,7 +9,6 @@ class H1 extends Component {
 }
 
 class Header extends Component {
-
   render() {
     return (
       <header className={this.props.scrolled ? 'scrolled' : 'not-scrolled'} id='main-header'>
