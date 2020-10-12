@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import Typist from 'react-typist'
 import 'react-typist/dist/Typist.css'
@@ -10,10 +10,9 @@ const Typed = styled.span`
   font-weight: 900;
 `
 
-class Gyro extends Component {
-
+const Gyro = () => {
   // TODO: Remove knowledge of #main-header from this component
-  handleClickToScroll = () => {
+  const handleClickToScroll = () => {
     const scrollTarget =
       document.getElementById('gyro').clientHeight -
       document.getElementById('main-header').clientHeight
@@ -24,8 +23,8 @@ class Gyro extends Component {
     })
   }
 
-  render() {
-    return <div id='gyro'>
+  return (
+    <div id='gyro'>
       <div id='gyro-text'>
         <div>
           <h2>The fastest way to</h2>
@@ -57,9 +56,9 @@ class Gyro extends Component {
         </div>
       </div>
       <div id='gyro-down'>
-        <button onClick={this.handleClickToScroll }>▼</button>
+        <button onClick={handleClickToScroll}>▼</button>
       </div>
     </div>
-  }
+  )
 }
 export default Gyro
