@@ -9,6 +9,12 @@ const InstructionsDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: stretch;
+  @media (max-width: 750px) {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
 `
 
 const InstructionDiv = styled.div`
@@ -16,7 +22,9 @@ const InstructionDiv = styled.div`
     min-width: 180px;
     max-width: 300px;
     flex: 1 1 auto;
-
+    @media (max-width: 750px) {
+      margin-bottom: 2.2rem;
+    }
 `
 
 const Instruction = (props) => <InstructionDiv>
